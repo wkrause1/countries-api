@@ -41,6 +41,7 @@ def country_detail(request, country_code):
         return JsonResponse(serializer.errors, status=400)
 
     elif request.method == 'DELETE':
+        print('Entering country API delete')
         country.delete()
         return HttpResponse(status=204)
 

@@ -25,6 +25,18 @@ def state_list(request, country_code):
         return JsonResponse(serializer.errors, status=400)
 
 @csrf_exempt
+def state_delete(state_text):
+    print('Entering API Delete method')
+    try:
+        state = State.objects.get(state_text=state_text)
+    except State.DoesNotExist:
+        return HttpResponse(status=404)
+    state.delete()
+    return HttpResponse(status=204)
+
+
+
+@csrf_exempt
 def state_detail(request, state_code):
     try:
         state = State.objects.get(state_code=state_code)

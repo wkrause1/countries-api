@@ -4,6 +4,6 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^countries/(?P<country_code>[A-z]+)/states/', views.state_list),
-    #url('countries/<country_code>/states/', views.state_list),
-   # url(r'^countries/(?P<country_code>[A-Z]+)/states', views.state_detail),
+    #url('^<state>', views.state_delete),
+    url(r'^countries/(?P<country_code>[A-z]+)/(?P<state>[A-z]+)', views.state_detail),
 ]
